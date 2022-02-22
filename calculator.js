@@ -66,6 +66,7 @@ for (let i = 1; i < 17; i++) {
 	calculatorBody.appendChild(createTeg)
 }
 
+
 // button sum number
 calculatorBody.appendChild(buttonSume)
 buttonSume.innerHTML = "Посчитать";
