@@ -7,7 +7,9 @@ const buttonSume = document.createElement("button")
 
 // Attribute class body
 calculatorBody.setAttribute("class", "calculator__body")
+calculatorBody.setAttribute("onsubmit", "return false;")
 importTeg.setAttribute("class", "calculator")
+
 buttonSume.setAttribute("class", "calculator__sum")
 
 // pushe in dody element
@@ -18,7 +20,7 @@ importTeg.appendChild(calculatorBody)
 // input two creature
 for (let i = 0; i < 2; i++) {
 	const calculatorInput = document.createElement("input")
-	calculatorInput.setAttribute("class", "calculator__input")
+	calculatorInput.setAttribute("class", `calculator__input${i + 1}`)
 	calculatorInput.setAttribute("style", "flex: 1 1 100%; font-size: 30px; padding: 10px 5px; text-align: right;");
 	if (i == 0) {
 		calculatorInput.setAttribute("placeholder", "Введите 1 чилосло");
@@ -63,6 +65,10 @@ for (let i = 1; i < 17; i++) {
 		createTeg.innerHTML = "-";
 	}
 
+	// id button
+	if (i) {
+		createTeg.setAttribute("id", i)
+	}
 	calculatorBody.appendChild(createTeg)
 }
 
@@ -72,10 +78,28 @@ calculatorBody.appendChild(buttonSume)
 buttonSume.innerHTML = "Посчитать";
 
 // import markup style
-
 importTeg.setAttribute("style", "max-width:400px; margin: 0 auto; padding-top:350px;");
 calculatorBody.setAttribute("style", "display: flex; flex-wrap: wrap;");
 buttonSume.setAttribute("style", "flex: 1 1 100%; padding:10px 0 5px 0; font-size: 30px;");
 
 
 // hushe on gitHab 
+
+
+// ui logik
+function idi(e) {
+	if (e == 0 || e == 1) {
+		const inputValue = document.querySelector(".calculator__input1")
+		inputValue.value += (e + 1);
+	}
+
+}
+const id = document.querySelectorAll(".calculator__button")
+for (let i = 0; i < id.length; i++) {
+	id[i].onclick = function (id) {
+		idi(i)
+	}
+}
+
+
+
